@@ -11,9 +11,9 @@
           </div>
           <!-- 中 -->
           <main class="col-span-12 xs:col-span-11 md:col-span-7">
-            <h1>hello Taiwan</h1>
+            <NuxtPage></NuxtPage>
             <button type="button" class="border" @click="darkMode = !darkMode">
-              test
+              測試暗黑模式
             </button>
           </main>
           <!-- 右 -->
