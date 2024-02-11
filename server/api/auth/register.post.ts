@@ -1,7 +1,5 @@
-import { User } from "~/server/models/User";
 import { userTransformer } from "~/server/transformers/user"
-
-import bcrypt from "bcrypt";
+import { createUser } from "~/server/db/users"
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -31,6 +29,7 @@ export default defineEventHandler(async (event) => {
     }));
   }
 
+  // 寫入 mongoDB
   const userData = {
     email,
     account,
@@ -38,14 +37,7 @@ export default defineEventHandler(async (event) => {
     name
   }
 
-  // 寫入 mongoDB
-  const salt = await bcrypt.genSalt(10);
-  const hasedPassword = await bcrypt.hash(body.password, salt);
-
-  const user = await User.create({
-    ...userData,
-    password: hasedPassword
-  });
+  const user = createUser(userData)
 
   return {
     body: userTransformer(user)

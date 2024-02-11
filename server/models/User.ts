@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 
 export interface UserDocument extends Document {
+  id: string;
   email: string;
   account: string;
   password: string;

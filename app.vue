@@ -1,7 +1,8 @@
 <template>
   <div :class="{ dark: darkMode }">
     <div class="bg-white dark:bg-dim-900">
-      <div class="min-h-full">
+      <!-- APP -->
+      <div v-if="user" class="min-h-full">
         <div class="grid grid-cols-12 mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:gap-5">
           <!-- 左 -->
           <div class="hidden xs:block xs:col-span-1 md:col-span-2">
@@ -24,10 +25,19 @@
           </div>
         </div>
       </div>
+      <AuthPage v-else></AuthPage>
     </div>
   </div>
 </template>
 
 <script setup>
+// 控制暗黑模式
 const darkMode = ref(false);
+// 登入狀態
+const { useAuthUser, initAuth } = useAuth();
+const user = useAuthUser();
+
+onBeforeMount(() => {
+  initAuth();
+});
 </script>

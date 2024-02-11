@@ -1,6 +1,8 @@
-import { User } from "~/server/models/User";
+import { getUserByAccount } from "~/server/db/users";
+import { createRefreshToken } from "~/server/db/refreshTokens";
+
+import { userTransformer } from "~/server/transformers/user"
 import { generateTokens } from "~/server/utils/jwt.js"
-import { RefreshToken } from "~/server/models/RefreshToken";
 
 import bcrypt from "bcrypt";
 
@@ -19,9 +21,7 @@ export default defineEventHandler(async (event) => {
     }))
 
     // 資料庫查找對應的用戶
-    const user = await User.findOne({
-        account: { $in: account }
-    })
+    const user: UserDocument | null = await getUserByAccount(account);
 
     if (!user) return sendError(event, createError({
         statusCode: 400,
@@ -30,9 +30,9 @@ export default defineEventHandler(async (event) => {
     }))
 
     // 檢查密碼正確性
-    const isPasswordMatch = await bcrypt.compare(password, user.password)
+    const isPasswordMatched = await bcrypt.compare(password, user.password)
 
-    if (!isPasswordMatch) return sendError(event, createError({
+    if (!isPasswordMatched) return sendError(event, createError({
         statusCode: 400,
         statusMessage: "Bad Request",
         message: "密碼錯誤"
@@ -41,16 +41,16 @@ export default defineEventHandler(async (event) => {
     const { accessToken, refreshToken } = generateTokens(user);
 
     // 儲存登入過的 Token 到資料庫
-    const token = await RefreshToken.create({
-        token: refreshToken,
-        userId: user.id
-    })
+    await createRefreshToken(refreshToken, user.id)
 
-    // 將 token 發給用戶端
+    // refresh token 存 cookie
     setCookie(event, "refresh_token", refreshToken, {
         httpOnly: true,
         sameSite: true
     })
 
-    return { accessToken, refreshToken }
+    return {
+        access_token: accessToken,
+        user: userTransformer(user)
+    }
 });
