@@ -10,7 +10,8 @@ export default defineEventHandler(async (event) => {
     if (!refreshToken_fromCookie) {
         return sendError(event, createError({
             statusCode: 401,
-            statusMessage: 'cookie 沒有 refresh token'
+            statusMessage: 'Unauthorized',
+            message: "cookie 沒有 refresh token"
         }))
     }
 
@@ -19,14 +20,16 @@ export default defineEventHandler(async (event) => {
         console.log(error);
         return sendError(event, createError({
             statusCode: 500,
-            statusMessage: 'Something went wrong'
+            statusMessage: "Internal Server Error",
+            message: '資料庫不存在此 refreshToken'
         }))
     })
 
     if (!refreshToken) {
         return sendError(event, createError({
             statusCode: 401,
-            statusMessage: '查無此 refresh token'
+            statusMessage: 'Unauthorized',
+            message: '查無此 refresh token'
         }))
     }
 
@@ -37,14 +40,16 @@ export default defineEventHandler(async (event) => {
         console.log(error);
         return sendError(event, createError({
             statusCode: 500,
-            statusMessage: 'Something went wrong'
+            statusMessage: "Internal Server Error",
+            message: 'Something went wrong'
         }))
     })
 
     if (!user) {
         return sendError(event, createError({
             statusCode: 500,
-            statusMessage: 'Something went wrong'
+            statusMessage: "Internal Server Error",
+            message: 'Something went wrong'
         }))
     }
 
