@@ -25,3 +25,6 @@ logs
 
 # VSCode Setting
 .vscode
+
+# X.509 Certificates
+*.pem
