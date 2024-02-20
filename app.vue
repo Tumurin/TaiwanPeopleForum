@@ -1,8 +1,12 @@
 <template>
   <div :class="{ dark: darkMode }">
     <div class="bg-white dark:bg-dim-900">
+      <div v-if="isLoading">
+        <LoadingPage></LoadingPage>
+      </div>
+
       <!-- APP -->
-      <div v-if="user" class="min-h-full">
+      <div v-else-if="user" class="min-h-full">
         <div class="grid grid-cols-12 mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:gap-5">
           <!-- 左 -->
           <div class="hidden xs:block xs:col-span-1 md:col-span-2">
@@ -34,7 +38,8 @@
 // 控制暗黑模式
 const darkMode = ref(false);
 // 登入狀態
-const { useAuthUser, initAuth } = useAuth();
+const { useAuthUser, initAuth, useAuthLoading } = useAuth();
+const isLoading = useAuthLoading();
 const user = useAuthUser();
 
 onBeforeMount(() => {
