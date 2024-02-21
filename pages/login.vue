@@ -16,4 +16,13 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+definePageMeta({
+  layout: false,
+});
+
+onBeforeMount(async () => {
+  const authUser = useAuthUser();
+  if (authUser.value) await navigateTo("/");
+});
+</script>

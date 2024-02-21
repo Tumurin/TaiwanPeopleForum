@@ -1,5 +1,6 @@
 <template>
   <div class="flex items-center justify-center h-screen">
+    <!-- 讀取動畫，圖標閃閃 -->
     <div class="absolute w-20 h-20 animate-ping">
       <LogoTwitter />
     </div>

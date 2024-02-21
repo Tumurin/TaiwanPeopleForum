@@ -5,9 +5,9 @@ import { decodeAccessToken } from "../utils/jwt.js"
 export default defineEventHandler(async (event) => {
     const endpoints = [
         '/api/auth/user',
-        '/api/user/tweets',
-        '/api/tweets',
-        '/api/tweets/:id'
+        '/api/user/thread',
+        '/api/threads',
+        '/api/threads/:id'
     ]
 
     const isHandledByThisMiddleware = endpoints.some(endopoint => {
@@ -28,7 +28,8 @@ export default defineEventHandler(async (event) => {
     if (!decoded) {
         return sendError(event, createError({
             statusCode: 401,
-            statusMessage: 'Unauthorized'
+            statusMessage: 'Unauthorized',
+            message: "請求中的 token 解碼失敗"
         }))
     }
 

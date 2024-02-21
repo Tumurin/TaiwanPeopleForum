@@ -1,4 +1,3 @@
-import type { LogoTwitter } from '#build/components';
 <template>
   <div class="h-screen flex flex-col">
     <!-- logo 圖標 -->
@@ -23,7 +22,6 @@ import type { LogoTwitter } from '#build/components';
         </template>
       </SidebarLeftTab>
     </div>
-    <!--  -->
   </div>
 </template>
 
