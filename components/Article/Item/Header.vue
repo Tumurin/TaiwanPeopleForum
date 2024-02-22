@@ -13,17 +13,17 @@
                 <nuxt-link to="#">
                     {{ author.handle }}
                 </nuxt-link>
-                . {{ props.thread.postedAtHuman }}
+                . {{ props.article.postedAtHuman }}
             </span>
 
 
-            <p v-if="props.thread.replyTo" class="text-sm">
+            <p v-if="props.article.replyTo" class="text-sm">
                 <span class="text-gray-500">
                     Replying to
                 </span>
 
-                <nuxt-link :to="replyToThreadUrl" class="text-blue-400">
-                    {{ props.thread.replyTo.author.handle }}
+                <nuxt-link :to="replyToArticleUrl" class="text-blue-400">
+                    {{ props.article.replyTo.author.handle }}
                 </nuxt-link>
             </p>
 
@@ -35,12 +35,12 @@
 </template>
 <script setup>
 const props = defineProps({
-    thread: {
+    article: {
         type: Object,
         required: true
     }
 })
 
-const author = props.thread.author
-const replyToThreadUrl = computed(() => `/status/${props.thread?.replyTo?.id}`)
+const author = props.article.author
+const replyToArticleUrl = computed(() => `/status/${props.article?.replyTo?.id}`)
 </script>

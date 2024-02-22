@@ -5,24 +5,25 @@
       <UISpinner />
     </div>
     <div v-else>
-      <ThreadItem
-        :thread="props.replyTo"
+      <!-- <ArticleItem
+        :article="props.replyTo"
         v-if="props.replyTo && props.showReply"
         hideActions
-      />
-      <ThreadFormInput :placeholder="props.placeholder" @onSubmit="handleFormSubmit" />
+      /> -->
+      <!-- 撰文區域 -->
+      <ArticleFormInput :placeholder="props.placeholder" @onSubmit="handleFormSubmit" />
     </div>
   </div>
 </template>
 <script setup>
 const emits = defineEmits(["onSuccess"]);
 const loading = ref(false);
-const { postThread } = useThread();
+const { postArticle } = usePostArticle();
 
 const props = defineProps({
   placeholder: {
     type: String,
-    default: "What's happening ?",
+    default: "在想什麼？",
   },
   replyTo: {
     type: Object,
@@ -34,16 +35,16 @@ const props = defineProps({
   },
 });
 
+// 送出貼文
 async function handleFormSubmit(data) {
+  console.log("dafasdfadsfasdf", data);
   loading.value = true;
   try {
-    const response = await postThread({
-      text: data.text,
-      mediaFiles: data.mediaFiles,
-      replyTo: props.replyTo?.id,
-    });
-
-    emits("onSuccess", response.thread);
+    const formData = { text: data.text };
+    console.log("[UI]發送", formData);
+    const response = await postArticle(formData);
+    console.log("[UI]回應", response);
+    emits("onSuccess", response.article);
   } catch (error) {
     console.log(error);
   } finally {

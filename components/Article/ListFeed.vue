@@ -1,17 +1,17 @@
 <template>
   <div>
     <div v-if="isEmptyArray" class="p-4">
-      <p class="text-center text-gray-500">No threads 😢</p>
+      <p class="text-center text-gray-500">No articles 😢</p>
     </div>
     <div
       v-else
       class="pb-4 border-b cursor-pointer hover:bg-gray-100 dark:hover:bg-dim-300"
       :class="[twitterBorderColor, defaultTransition]"
-      v-for="thread in props.threads"
-      :key="thread.id"
-      @click="redirect(thread)"
+      v-for="article in props.articles"
+      :key="article.id"
+      @click="redirect(article)"
     >
-      <ThreadItem :thread="thread" compact />
+      <ArticleItem :article="article" compact />
     </div>
   </div>
 </template>
@@ -19,15 +19,15 @@
 const { twitterBorderColor, defaultTransition } = useTailwindConfig();
 
 const props = defineProps({
-  threads: {
+  articles: {
     type: Array,
     required: true,
   },
 });
 
-const isEmptyArray = computed(() => props.threads.length === 0);
+const isEmptyArray = computed(() => props.articles.length === 0);
 
-function redirect(thread) {
-  navigateTo(`/status/${thread.id}`);
+function redirect(article) {
+  navigateTo(`/status/${article.id}`);
 }
 </script>

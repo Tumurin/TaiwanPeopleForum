@@ -1,7 +1,6 @@
 import useAuth from "~/composables/useAuth"
 
 export default defineNuxtPlugin(async function (n) {
-    console.log(arguments)
     if (process.server) console.log("plugins server 端執行 autoAuth")
 
     if (process.client) {

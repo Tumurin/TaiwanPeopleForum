@@ -2,22 +2,22 @@
     <div>
 
 
-        <ThreadItemHeader :thread="props.thread" />
+        <ArticleItemHeader :article="props.article" />
 
 
-        <div :class="threadBodyWrapper">
+        <div :class="articleBodyWrapper">
             <p class="flex-shrink w-auto font-medium text-gray-800 dark:text-white" :class="textSize">
-                {{ props.thread.text }}
+                {{ props.article.text }}
             </p>
 
-            <div v-for="image in thread.mediaFiles" :key="image.id" class="flex my-3 mr-2 border-2 rounded-2xl"
+            <div v-for="image in article.mediaFiles" :key="image.id" class="flex my-3 mr-2 border-2 rounded-2xl"
                 :class="twitterBorderColor">
                 <img :src="image.url" class="w-full rounded-2xl" />
             </div>
 
 
             <div class="mt-2" v-if="!props.hideActions">
-                <ThreadItemActions :thread="props.thread" :compact="props.compact"
+                <ArticleItemActions :article="props.article" :compact="props.compact"
                     @on-comment-click="handleCommentClick" />
             </div>
 
@@ -32,7 +32,7 @@ const { twitterBorderColor } = useTailwindConfig()
 const emitter = useEmitter()
 
 const props = defineProps({
-    thread: {
+    article: {
         type: Object,
         required: true
     },
@@ -46,12 +46,12 @@ const props = defineProps({
     }
 })
 
-const threadBodyWrapper = computed(() => props.compact ? 'ml-16' : 'ml-2 mt-4')
+const articleBodyWrapper = computed(() => props.compact ? 'ml-16' : 'ml-2 mt-4')
 
 const textSize = computed(() => props.compact ? 'text-base' : 'text-2xl')
 
 function handleCommentClick() {
-    emitter.$emit('replyThread', props.thread)
+    emitter.$emit('replyArticle', props.article)
 }
 
 </script>

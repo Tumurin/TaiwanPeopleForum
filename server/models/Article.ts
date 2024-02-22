@@ -1,13 +1,13 @@
 import { Schema, model, Types } from "mongoose";
 
-export interface ThreadDocument extends Document {
+export interface ArticleDocument extends Document {
     title: string;
     content: string;
     created: Date;
     updated: Date;
 }
 
-const ThreadSchema = new Schema({
+const ArticleSchema = new Schema({
     title: String, // 討論串標題
     content: String, // 內文
     u_id: Types.ObjectId, // 作者 id
@@ -15,4 +15,4 @@ const ThreadSchema = new Schema({
     updated: Date,
 });
 
-export const Thread = model<ThreadDocument>("Thread", ThreadSchema);
+export const Article = model<ArticleDocument>("Article", ArticleSchema);

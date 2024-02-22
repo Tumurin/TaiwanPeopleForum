@@ -1,19 +1,23 @@
 <template>
   <div>
-    <div class="flex items-center flex-shrink-0 p-4 pb-0">
-      <div class="flex w-12 items-top">
+    <div class="flex flex-shrink-0 p-4 pb-0">
+      <!-- 大頭照 -->
+      <div class="w-12">
         <img
-          src="https://lh3.googleusercontent.com/a/ACg8ocIUhRDr2mwbiFxiTxjrXsRxkrSjAEEMDYfmDatMFRBKk5DR=s83-c-mo"
-          alt=""
-          class="inline-block w-10 h-10 rounded-full"
+          src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYR9mOgAPr8u-yIXCLJ5HDJC4o7oaSUAyymCZu49bak1-v9zT4xdjEyiOCpQJusGt53wNXvEi3sZHhkKyFgX30CBdIC9=w1910-h987"
+          alt="大頭照"
+          class="inline-block w-10 h-10 mt-5 rounded-full"
         />
       </div>
-
       <div class="w-full p-2">
+        <!-- 輸入框 -->
         <textarea
           v-model="text"
-          class="w-full h-10 text-lg text-gray-900 placeholder:text-gray-400 bg-transparent border-0 dark:tex.white focus:ring-0"
+          class="w-full h-20 text-lg text-gray-900 placeholder:text-gray-400 bg-transparent border-0 dark:tex.white focus:ring-0 resize-none"
           :placeholder="props.placeholder"
+          style="height: auto"
+          @input="autoGrow"
+          ref="inputArea"
         ></textarea>
       </div>
     </div>
@@ -133,12 +137,6 @@ const { twitterBorderColor } = useTailwindConfig();
 const imageInput = ref();
 const selectedFile = ref(null);
 const inputImageUrl = ref(null);
-const text = ref("");
-
-const emits = defineEmits(["onSubmit"]);
-
-const isDisabled = computed(() => text.value === "");
-
 const props = defineProps({
   // 用戶資料 -> 取得用戶大頭貼
   // user: {
@@ -151,6 +149,12 @@ const props = defineProps({
   },
 });
 
+/** 貼文內容 */
+const text = ref("");
+// 不能發送空白內容
+const isDisabled = computed(() => text.value === "");
+const emits = defineEmits(["onSubmit"]);
+// 發文
 function handleFormSubmit() {
   emits("onSubmit", {
     text: text.value,
@@ -174,5 +178,18 @@ function handleImageChange(event) {
   };
 
   reader.readAsDataURL(file);
+}
+
+const inputArea = ref();
+let str_input = "";
+// 輸入框隨內容自動增長
+function autoGrow($event) {
+  // console.log($event);
+  // console.log(inputArea);
+  // 刪除的時候要重置高度再判斷
+  if (inputArea.value.value < str_input) inputArea.value.style.height = 72 + "px";
+  inputArea.value.style.height = $event.target.scrollHeight + "px";
+  if ($event.target.scrollHeight >= 240) inputArea.value.style.height = 240 + "px";
+  str_input = inputArea.value.value;
 }
 </script>

@@ -43,15 +43,15 @@
 const happenings = ref([
   {
     title: "DDP",
-    count: "18.8k Threads",
+    count: "18.8k Articles",
   },
   {
     title: "TTP",
-    count: "14.3k Threads",
+    count: "14.3k Articles",
   },
   {
     title: "KMT",
-    count: "10.2k Threads",
+    count: "10.2k Articles",
   },
 ]);
 const followers = ref([
