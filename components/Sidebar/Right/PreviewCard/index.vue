@@ -1,7 +1,7 @@
 <template>
   <div
     class="m-2 border rounded-2xl bg-gray-50 dark:bg-dim-700 overflow-hidden"
-    :class="twitterBorderColor"
+    :class="defaultBorderColor"
   >
     <!-- 卡片標題 -->
     <h2 class="p-3 text-xl font-extrabold text-gray-900 border-b dark:text-white">
@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-const { twitterBorderColor, defaultTransition } = useTailwindConfig();
+const { defaultBorderColor, defaultTransition } = useTailwindConfig();
 const props = defineProps({
   title: {
     type: String,

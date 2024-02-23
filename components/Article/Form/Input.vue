@@ -4,7 +4,7 @@
       <!-- 大頭照 -->
       <div class="w-12">
         <img
-          src="https://lh3.googleusercontent.com/drive-viewer/AEYmBYR9mOgAPr8u-yIXCLJ5HDJC4o7oaSUAyymCZu49bak1-v9zT4xdjEyiOCpQJusGt53wNXvEi3sZHhkKyFgX30CBdIC9=w1910-h987"
+          src="https://1.gravatar.com/avatar/c2552c16d9658ee2e40c7441ebc5646386d7ebb9bedcb0c6739835a26958d95c?size=256"
           alt="大頭照"
           class="inline-block w-10 h-10 mt-5 rounded-full"
         />
@@ -22,22 +22,22 @@
       </div>
     </div>
 
-    <!-- File Selector -->
-
     <div class="p-4 pl-16">
+      <!-- 檔案上傳預覽 -->
       <img
         :src="inputImageUrl"
         v-if="inputImageUrl"
-        alt=""
-        class="border rounded-2xl"
-        :class="twitterBorderColor"
+        alt="預覽上傳檔案"
+        class="border rounded-2xl max-h-80"
+        :class="defaultBorderColor"
       />
-
+      <!-- 接受 png/gif/jpeg 上傳 -->
       <input
         type="file"
         ref="imageInput"
         hidden
         accept="image/png, image/gif, image/jpeg"
+        multiple="true"
         @change="handleImageChange"
       />
     </div>
@@ -132,7 +132,7 @@
   </div>
 </template>
 <script setup>
-const { twitterBorderColor } = useTailwindConfig();
+const { defaultBorderColor } = useTailwindConfig();
 
 const imageInput = ref();
 const selectedFile = ref(null);

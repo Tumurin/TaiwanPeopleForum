@@ -14,9 +14,9 @@ const props = defineProps({
   },
 });
 
-const { twitterBorderColor, defaultTransition } = useTailwindConfig();
+const { defaultBorderColor, defaultTransition } = useTailwindConfig();
 
 const warpperClasses = computed(() => {
-  return `${twitterBorderColor} ${defaultTransition}`;
+  return `${defaultBorderColor} ${defaultTransition}`;
 });
 </script>

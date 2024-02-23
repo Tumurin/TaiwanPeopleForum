@@ -18,7 +18,7 @@
 <script setup>
 const emits = defineEmits(["onSuccess"]);
 const loading = ref(false);
-const { postArticle } = usePostArticle();
+const { postArticle } = useArticle();
 
 const props = defineProps({
   placeholder: {

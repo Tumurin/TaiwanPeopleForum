@@ -23,7 +23,7 @@ export default () => {
     const form = new FormData();
     // 文章內容
     form.append("text", formData.text);
-    console.log("[usePostArticle]發表文章：",form);
+    console.log("[useArticle] 發表文章：", form);
     // form.append("replyTo", formData.replyTo);
 
     // formData.mediaFiles.forEach((mediaFile, index) => {
@@ -39,10 +39,11 @@ export default () => {
   const getArticles = (params = {}) => {
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await useFetchWithToken("/api/articles", {
+        console.log("[useArticle] 獲取文章列表");
+        const response = await $fetch("/api/article", {
           method: "GET",
-          params,
         });
+        console.log("[useArticle] 文章列表：", response);
 
         resolve(response);
       } catch (error) {
