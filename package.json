@@ -18,7 +18,8 @@
     "mongoose": "^8.1.1",
     "nuxt": "^3.10.1",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue-sweetalert2": "^5.0.5"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.11.3",

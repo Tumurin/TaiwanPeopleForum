@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 導覽列 -->
     <nav class="top-0 left-0 w-full bg-gray-800 text-white p-4 z-10 lg:absolute">
       <div class="container mx-auto flex flex-wrap justify-between items-center">
         <div class="flex justify-between items-center w-full lg:w-auto">
@@ -13,11 +14,10 @@
           </button>
         </div>
         <div :class="{ hidden: !navOpen, block: navOpen }" class="lg:block lg:flex">
-          <a href="#product" class="px-4 py-2 block hover:text-gray-300">核心宗旨</a>
-          <a href="#features" class="px-4 py-2 block hover:text-gray-300">解決問題</a>
-          <a href="#products" class="px-4 py-2 block hover:text-gray-300">產品</a>
-          <a href="#team" class="px-4 py-2 block hover:text-gray-300">團隊</a>
-          <a href="#contact" class="px-4 py-2 block hover:text-gray-300">聯絡我們</a>
+          <a href="#features" class="px-4 py-2 block hover:text-gray-300">核心宗旨</a>
+          <a href="#experience" class="px-4 py-2 block hover:text-gray-300">使用體驗</a>
+          <a href="#core" class="px-4 py-2 block hover:text-gray-300">核心機制</a>
+          <a href="#join" class="px-4 py-2 block hover:text-gray-300">我需要你！</a>
         </div>
       </div>
     </nav>
@@ -29,12 +29,11 @@
         <!-- 文字敘述部分 -->
         <div class="w-full lg:w-1/2 p-8">
           <h1 class="text-4xl font-bold mb-4">共有論壇計畫</h1>
-          <p class="mb-4">
+          <p class="mb-2">
             共有論壇計畫希望透過 AI 技術，打造一個屬於台灣人的公共政策討論平台。
           </p>
           <p class="mb-4">
-            利用 AI
-            技術強大的文字分析功能，將相關議題彙總。讓議題討論變得更加簡單高效，並且方便回溯查找。
+            利用 AI 強大的文字分析功能，將公共議題彙總，讓議題討論變得簡單高效。
           </p>
           <!-- 按鈕靠右對齊 -->
           <div class="flex justify-end">
@@ -60,32 +59,46 @@
     <!-- 第二區塊：產品解決的問題 -->
     <section id="features" class="py-16 bg-gray-100">
       <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-8">解決問題</h2>
+        <h2 class="text-3xl font-bold mb-8">一個值得台灣人共有的論壇</h2>
         <div class="flex flex-wrap justify-center">
           <!-- 單個功能介紹 -->
-          <div class="w-full sm:w-1/2 px-4 mb-8">
+          <div class="w-full sm:w-1/3 px-8 mb-8">
             <img
               src="https://picsum.photos/200"
               alt="功能1"
-              class="rounded-full mx-auto mb-4"
+              class="rounded-full w-80 mx-auto mb-4"
             />
-            <h3 class="text-xl font-bold mb-2">訊息流不易檢索</h3>
-            <p>
-              現行人們在各大社群平台上討論議題，像是 FB LINE
-              ...等。然而，社群平台的設計並非為了議題討論之用，因此相同主題的內容淹沒在訊息流之中，難以檢索。
+            <h3 class="text-xl font-bold mb-2">公開透明的平台</h3>
+            <p class="text-start">
+              共有，就是要讓所有台灣人共同享有這個平台，不僅程式碼公開，平台收益也由公益社團公開。
+            </p>
+            <p class="text-start">
+              假如您是位創作者，不必再擔心未知的演算法。來我們共同這個共有的平台，這裡對創作十分友好。
             </p>
           </div>
           <!-- 重複上述結構以展示其他功能 -->
-          <div class="w-full sm:w-1/2 px-4 mb-8">
+          <div class="w-full sm:w-1/3 px-8 mb-8">
+            <img
+              src="https://picsum.photos/202"
+              alt="功能2"
+              class="rounded-full w-80 mx-auto mb-4"
+            />
+            <h3 class="text-xl font-bold mb-2">AI 輔助的公共議題討論</h3>
+            <p class="text-start">
+              來這裡討論任何議題吧！不必再到各大社群平台或群組了，不必再被訊息流淹沒了！這個論壇設計的目的就是為了解決公共議題討論分散低效的問題。透過AI強大的語意分析能力，將議題討論進行整合。各位只管盡抒己見，AI會幫你做分類，幫你找到相關議題一起討論。
+            </p>
+          </div>
+          <div class="w-full sm:w-1/3 px-8 mb-8">
             <img
               src="https://picsum.photos/201"
               alt="功能2"
-              class="rounded-full mx-auto mb-4"
+              class="rounded-full w-80 mx-auto mb-4"
             />
-            <h3 class="text-xl font-bold mb-2">發文忘記分類</h3>
-            <p>
-              為了方便檢索，必須要求使用者在發文前主動對張貼內容進行分類，違反人性。透過
-              AI 技術，應該讓用戶可以像平時說話那樣去討論，分類交給 AI 來做。
+            <h3 class="text-xl font-bold mb-2">公益、公益、還是公益</h3>
+            <p>公共議題，公開討論</p>
+            <p class="text-start">
+              台灣，我們一起共有的這片土地；論壇，我們一起共有的公共平台。
+              正因如此，論壇的重要事務，也將交由各位論壇的用戶，一起投票決策。不僅如此，論壇的收益，也都將用在公益上面，我們不容許討論平台變成斂財工具。
             </p>
           </div>
         </div>
@@ -93,7 +106,7 @@
     </section>
 
     <!-- 第三區塊：產品使用體驗 -->
-    <section id="product-experience" class="py-16 bg-gray-100">
+    <section id="experience" class="py-16 bg-gray-100">
       <h2 class="text-3xl font-bold text-center mb-8">使用體驗</h2>
       <div class="container mx-auto flex flex-wrap items-stretch text-center">
         <!-- 左側文字說明，靠下對齊 -->
@@ -132,17 +145,17 @@
     </section>
 
     <!-- 第四區塊：產品特色瀑布流 -->
-    <section id="product-features" class="py-16">
-      <h2 class="text-3xl font-bold text-center mb-8">核心機制</h2>
+    <section id="core" class="py-16">
+      <h2 class="text-3xl font-bold text-center mb-8">所以，要怎麼做？</h2>
       <div class="container mx-auto">
         <!-- 每個特色的容器應該保持一致的寬度，並在中間對齊 -->
         <div class="flex flex-wrap justify-center">
           <!-- 特色一：左邊文字，右邊圖片 -->
           <div class="flex flex-wrap items-center mb-8 max-w-4xl">
             <div class="w-full lg:w-1/2 p-4">
-              <h3 class="text-2xl font-bold mb-2">AI分類技術</h3>
+              <h3 class="text-2xl font-bold mb-2">AI大語言模型</h3>
               <p>
-                透過AI技術自動分類，用戶不用煩惱分類的問題，自然發表言論也能加入到關心的主題之中。
+                AI語言模型最強大之處，便是針對自然語言的文字分析能力。我們可以透過AI技術來將內容分類，讓用戶可以輕鬆關注公共議題的討論。當訊息量增加時，AI也能將文字進行總結整理，讓用戶快速跟上討論進度，大大增進公共議題討論的效率。更棒的是，因為是根據可靠的輸入內容，AI不會瞎掰，總結的內容都讓你有跡可循。
               </p>
             </div>
             <div class="w-full lg:w-1/2 p-4">
@@ -157,10 +170,9 @@
           <!-- 特色二：左邊圖片，右邊文字 -->
           <div class="flex flex-wrap items-center mb-8 max-w-4xl">
             <div class="w-full lg:w-1/2 p-4 lg:order-2">
-              <h3 class="text-2xl font-bold mb-2">共有論壇</h3>
+              <h3 class="text-2xl font-bold mb-2">公益社團</h3>
               <p>
-                論壇的價值，理當屬於在此認真討論議題的每一個人。TaiwanPeopleForum
-                將成立公益社團，確保收益不會落入某個人手上。
+                公共議題的討論，有人聚集的地方，就會產生價值。要避免公共議題討論產生的公益價值落入有心人士手中，我們要成立公益社團，透過公開透明的機制，讓公共價值回饋公眾。
               </p>
             </div>
             <div class="w-full lg:w-1/2 p-4 lg:order-1">
@@ -177,29 +189,43 @@
             <div class="w-full lg:w-1/2 p-4">
               <h3 class="text-2xl font-bold mb-2">投票機制</h3>
               <p>
-                論壇不只可以討論公共議題，論壇本身也是公共議題的一部分。透過論壇內部投票機制，用戶可以決定論壇的開發方向。
+                民主的真諦，在於眾人之事能夠交付眾人決定。論壇不只可以討論公共議題，論壇本身也是公共議題的一部分。論壇的營運會透過公開透明的圖表與數據，讓用戶共同參與決策。
               </p>
             </div>
             <div class="w-full lg:w-1/2 p-4">
               <img
                 src="https://picsum.photos/500/300?random=3"
-                alt="特色一"
+                alt="特色三"
                 class="rounded-lg"
               />
             </div>
           </div>
           <div class="flex flex-wrap items-center mb-8 max-w-4xl">
             <div class="w-full lg:w-1/2 p-4 lg:order-2">
-              <h3 class="text-2xl font-bold mb-2">隱私安全並杜絕機器人</h3>
+              <h3 class="text-2xl font-bold mb-2">杜絕假帳號</h3>
               <p>
-                AI
-                是一把雙面刃，我們需要小心防止機器人進入而破壞論壇的討論環境。因此，針對每個加入的用戶，我們都必須確保真人註冊。但同時，論壇保證絕不儲存用戶的個人資料，只使用加密後的密碼來進行用戶驗證。
+                AI是一把雙面刃，我們需要小心防止機器人進入而破壞論壇的討論環境。因此，針對每個加入的用戶，我們要確保是真人註冊。
               </p>
             </div>
             <div class="w-full lg:w-1/2 p-4 lg:order-1">
               <img
                 src="https://picsum.photos/500/300?random=4"
-                alt="特色二"
+                alt="特色四"
+                class="rounded-lg"
+              />
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center mb-8 max-w-4xl">
+            <div class="w-full lg:w-1/2 p-4">
+              <h3 class="text-2xl font-bold mb-2">匿名且安全</h3>
+              <p>
+                透過加密技術，用戶可以放心安全地在論壇進行公共議題討論。但匿名不代表可以違法，針對違反法律的行為，一人只有一個的帳號將會被懲處。這也是為什麼其他平台難以管理的原因：你能想像在現實之中，有人犯法，槍斃了可以去重生點復活嗎？其他平台帳號隨便註冊，因此用戶不珍惜帳號。在此，請珍惜僅有一個的帳號。
+              </p>
+            </div>
+            <div class="w-full lg:w-1/2 p-4">
+              <img
+                src="https://picsum.photos/500/300?random=5"
+                alt="特色三"
                 class="rounded-lg"
               />
             </div>
@@ -209,32 +235,57 @@
     </section>
 
     <!-- 第五區塊：鼓勵用戶加入 -->
-    <section id="call-to-action" class="py-16 bg-blue-500 text-white">
-      <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-bold mb-4">加入我們</h2>
-        <p class="text-xl mb-8">我們致力於創造創新的解決方案，改變世界。</p>
-        <p class="mb-8">成為我們的一部分，一起實現這個目標。</p>
-        <button class="bg-white text-blue-500 font-bold py-2 px-4 rounded-lg">
-          現在就加入
-        </button>
+    <section id="join" class="py-16 bg-blue-500 text-white">
+      <div class="container mx-auto text-start">
+        <h2 class="text-4xl font-bold mx-8 mb-4 text-center">加入我們</h2>
+        <p class="text-xl mx-8 mb-4 text-center">一個人可以走得很快，一群人可以走得很遠</p>
+        <p class="mx-8 sm:mx-16 mb-2">
+          共同論壇，是一個大家一起需要長期努力持續投入才能開花結果的專案。這個專案，不僅僅是一個軟體工程，它同時涉及成立公益社團，也就需要考慮其法律與財務等諸多問題。它同時涉及：法律、會計、協會組織、社會公益......等多種多面向的知識。因此，我一個人的力量是遠遠不夠的。我需要各種各樣有心想協助論壇成立的人，一起加入。
+        <ul class="mx-8 sm:mx-16 mb-8 list-disc pl-5 space-y-2">
+          <li>如果您是軟體工程師。這是目前專案的 Github 連結，邀請您加入一起共同打造共有論壇。</li>
+          <li>如果您是對成立協會有相關經驗的人，願意提供寶貴的經驗分享或者其他專長協助，請聯繫我。<br/>這是我的信箱：ks960037@gmail.com</li>
+          <li>如果您想默默支持，願意關注論壇發展的朋友。請在下方表單留下您的聯繫方式，我將會在每個月的月底，像董事會給股東寄信那樣，定期向大家報告我們的進度。(何況我比公司的董事會還勤勞喔)</li>
+        </ul>
+        </p>
+        <!-- 按鈕區 -->
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://github.com/Tumurin/TaiwanPeopleForum"
+            target="_blank"
+            class="bg-white text-blue-500 font-bold py-2 px-4 rounded-lg"
+          >
+            工程師
+          </a>
+          <a 
+            href="mailto:ks960037@gmail.com?subject=加入協會的請求&body=請在這裡寫下您的訊息。"
+            target="_blank"
+            class="bg-white text-blue-500 font-bold py-2 px-4 rounded-lg"
+          >
+            協會成員
+          </a>
+          <a href="#userform" class="bg-white text-blue-500 font-bold py-2 px-4 rounded-lg">
+            支持者
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- 第六區塊：用戶資料輸入表單 -->
-    <section id="user-form" class="py-16 bg-gray-100">
+    <section id="userform" class="py-16 bg-gray-100">
       <div class="container mx-auto">
         <h2 class="text-3xl font-bold text-center mb-8">填寫資料</h2>
         <div class="max-w-md mx-auto">
           <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div class="mb-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                名字
+                暱稱
               </label>
               <input
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="name"
                 type="text"
-                placeholder="您的名字"
+                placeholder="怎麼稱呼？"
+                v-model="name"
               />
             </div>
             <div class="mb-4">
@@ -246,24 +297,16 @@
                 id="email"
                 type="email"
                 placeholder="您的電子郵件"
+                v-model="mail"
               />
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
-                留言
-              </label>
-              <textarea
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="message"
-                placeholder="您的留言"
-              ></textarea>
             </div>
             <div class="flex items-center justify-center">
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="submit"
+                type="button"
+                @click="onSubmit"                
               >
-                提交
+                訂閱論壇發展報告
               </button>
             </div>
           </form>
@@ -297,6 +340,8 @@
 </style>
 
 <script setup>
+import SWAL from "sweetalert2";
+
 definePageMeta({
   layout: false,
 });
@@ -304,5 +349,36 @@ definePageMeta({
 const navOpen = ref(false);
 function toggleNav() {
   navOpen.value = !navOpen.value;
+}
+
+const name = ref("");
+const mail = ref("");
+
+async function onSubmit (){
+  console.log(name,mail)
+  const result = await $fetch("/api/subscribe",{
+    method:"POST",
+    body:{
+      name:name.value,
+      mail:mail.value
+    }
+  })
+  console.log(result)
+  if(result.stateCode == 1) SWAL.fire({
+    icon: "success",
+    toast: false,
+    timerProgressBar: true,
+    timer: 1000,
+    title: "訂閱成功，感謝您的肯定"
+  })
+  if(result.stateCode == 0) SWAL.fire({
+    icon: "success",
+    toast: true,
+    timerProgressBar: true,
+    showConfirmButton: false,
+    timer: 1000,
+    position: "top-end",
+    title: "你已訂閱，感謝支持"
+  });
 }
 </script>
